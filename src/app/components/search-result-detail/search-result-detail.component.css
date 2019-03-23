@@ -1,0 +1,27 @@
+.search-result-detail-container{
+    padding: 0.2em;
+    margin: 0.2em;
+    margin-top:0.5em;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.searchresult-detail{
+    width: 33%;
+    font-size: 12px;
+    display: flex;
+}
+
+
+.search-result-item-label{
+    display: inline-block;    
+    font-weight: bold;
+    padding: 0.1em;
+    justify-content: flex-start
+}
+
+.search-result-item-value{
+    display: inline-block;    
+    padding: 0.1em;
+}

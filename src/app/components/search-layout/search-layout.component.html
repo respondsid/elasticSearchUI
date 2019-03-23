@@ -1,0 +1,13 @@
+<div class="container">
+  <app-header [elasticContext]="elasticContext"></app-header>
+  <div class="elastic-container">
+    <div class="elastic-left-container">
+      <app-search-aggregations [elasticContext]="elasticContext" ></app-search-aggregations>
+    </div>
+    <div class="elastic-right-container">
+        <app-search-results [elasticContext]="elasticContext"></app-search-results>
+      </div>
+  </div>
+  <div style="clear:both;"></div>
+</div>
+

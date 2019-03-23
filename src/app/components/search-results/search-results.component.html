@@ -1,0 +1,10 @@
+<div class="search-result-container">
+  
+  <app-search-result-header [elasticContext]=elasticContext> </app-search-result-header>
+  <app-search-result-selections [elasticContext]=elasticContext></app-search-result-selections>
+  <div class="search-detail-wrapper" *ngFor="let searchResult of elasticContext.searchResults">
+    <app-search-result-detail [searchResult]=searchResult [elasticContext]=elasticContext></app-search-result-detail>
+  </div>
+  <app-search-result-footer></app-search-result-footer>
+   
+</div>

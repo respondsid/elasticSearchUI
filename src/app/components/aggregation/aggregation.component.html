@@ -1,0 +1,33 @@
+<div class="agreegation-container">
+
+  <div class="aggregation-header-container">
+    <div class="aggregation-display-field">{{aggregation.field.display_label}}</div>
+    <div class="aggregation-display-clear">
+      <fa-icon [icon]="foldUnfoldIcon()" (click)="flipFold()"></fa-icon>
+    </div>
+  </div>
+  <ng-container *ngIf=!fold>
+    <div class="aggregation-selection-container">
+      <div class="aggregation-select-all">Select All</div>
+      <div class="aggregation-clear-all">Clear All</div>
+    </div>
+
+    <div *ngIf="aggregation.values.length>50">
+      <div class="agrregation-search">
+        <div class="aggregation-search-input">
+          <div class="aggregation-search-input-icon">
+            <fa-icon [icon]="faSearch"></fa-icon>
+          </div>
+          <input type="text" placeholder="Search" class="form-control agrregation-search-input-control" />
+        </div>
+      </div>
+    </div>
+
+    <div class="aggregation-values-wrapper">
+      <ng-container *ngFor="let value of aggregation.values">
+        <app-aggregation-value [aggregation]=aggregation [value]=value></app-aggregation-value>
+      </ng-container>
+    </div>
+  </ng-container>
+  <div style="clear: both;"></div>
+</div>

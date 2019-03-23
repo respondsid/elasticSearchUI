@@ -1,0 +1,10 @@
+<div class="search-result-detail-container">
+  
+  <ng-container   *ngFor="let item of searchResult | keyvalue;odd as odd;even as even;">
+    
+    <div class="searchresult-detail" >
+      <div class="search-result-item-label">{{item.key}} : </div>
+      <div class="search-result-item-value">{{item.value}}</div>
+    </div>
+  </ng-container>
+</div>

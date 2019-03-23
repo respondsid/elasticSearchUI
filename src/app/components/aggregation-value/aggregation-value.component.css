@@ -1,0 +1,27 @@
+.aggregation-value-container{
+ padding-left: 1em;
+ margin-right: 1em;
+}
+
+.aggregation-field-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.aggregation-value{
+    justify-content: flex-start;
+}
+.aggregation-value-checkbox{
+
+}
+
+.aggregation-value-name-label{
+    justify-content: flex-start;
+    padding-top: 2px;
+    font-size: 12px;
+}
+
+.aggregation-value-count{
+    justify-content: flex-end;
+    font-size: 12px;
+}

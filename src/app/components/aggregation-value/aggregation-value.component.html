@@ -1,0 +1,9 @@
+<div class="aggregation-value-container">
+  <div class="aggregation-field-container">
+    <div class="custom-control custom-checkbox aggregation-value">
+      <input type="checkbox" class="custom-control-input aggregation-value-checkbox" (click)="checked($event)" id="{{value.key}}">
+      <label for="{{value.key}}" class="custom-control-label aggregation-value-name-label">{{value.displayLabel}}</label>
+    </div>
+    <div class="aggregation-value-count">({{value.doc_count}})</div>
+  </div>
+</div>

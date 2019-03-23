@@ -1,0 +1,5 @@
+<div class="search-aggregation-container">
+  <div *ngFor="let aggregation of elasticContext.aggregationResults">
+    <app-aggregation [elasticContext]="elasticContext" [aggregation]="aggregation"></app-aggregation>
+  </div>
+</div>

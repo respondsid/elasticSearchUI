@@ -1,0 +1,19 @@
+<ng-container *ngIf="selections()">
+    <div class="result-selection-container">
+        <ng-container *ngFor="let aggregationResult of elasticContext.aggregationResults">
+            <ng-container *ngFor="let value of selectedValuesArray(aggregationResult)">
+              <div class="search-selection-value-parent-container" >
+              <div class="search-selection-value-container">
+                      <div class="search-selection-text">
+                        {{value.displayLabel}}
+                      </div>
+                      <div class="search-selection-clear">
+                          <fa-icon [icon]="faTimes" (click)="flipSelection(value)"></fa-icon>
+                      </div>
+                </div>
+              </div> 
+            </ng-container>
+        </ng-container>
+    </div>
+    <div style="clear:both"></div>
+</ng-container>
