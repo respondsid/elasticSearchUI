@@ -1,4 +1,4 @@
-.container{
+.container-fluid{
     background-color:#e7eff1;
     width:100%;
 }
@@ -17,3 +17,17 @@
     justify-content: flex-start;
     padding: 0.5em;
 }
+
+
+  /* On screens that are 600px or less, set the background color to olive */
+  @media screen and (max-width: 800px) {
+    .elastic-container{
+        flex-direction: column;
+    }
+    .elastic-left-container{
+        width: 100%;
+    }
+    .elastic-right-container{
+        width: 100%;
+    }
+  }
