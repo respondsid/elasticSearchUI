@@ -26,3 +26,13 @@
     display: inline-block;    
     padding: 0.1em;
 }
+
+ /* On screens that are 600px or less, set the background color to olive */
+ @media screen and (max-width: 800px) {
+    .search-result-detail-container{
+        flex-direction: column;
+    }
+    .searchresult-detail{
+        width: 100%;
+    }
+ }
