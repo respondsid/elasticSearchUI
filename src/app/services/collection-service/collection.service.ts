@@ -36,7 +36,7 @@ export class CollectionService {
   }
 
   public searchElastic(collection: string, queryObject: ElasticQueryBuilder): Observable<ElasticResponse> {
-    return this.http.post('http://localhost:9200/' + collection + '/_search', queryObject != null ? queryObject.toJson() : null).pipe(map<ElasticResponse, any>(data => this.convertResult(data)));
+    return this.http.post('http://localhost:9200/' + collection + '/_search'+(queryObject!=null?queryObject.getMultiFieldQueryStr():''), queryObject != null ? queryObject.toJson() : null).pipe(map<ElasticResponse, any>(data => this.convertResult(data)));
   }
 }
 

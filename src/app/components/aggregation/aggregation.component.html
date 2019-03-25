@@ -18,13 +18,13 @@
           <div class="aggregation-search-input-icon">
             <fa-icon [icon]="faSearch"></fa-icon>
           </div>
-          <input type="text" placeholder="Search" class="form-control agrregation-search-input-control" />
+          <input type="text" placeholder="Search"  [(ngModel)]="search"class="form-control agrregation-search-input-control" />
         </div>
       </div>
     </div>
 
     <div class="aggregation-values-wrapper">
-      <ng-container *ngFor="let value of aggregation.values">
+      <ng-container *ngFor="let value of aggregation.values | searchPipe:'displayLabel':search">
         <app-aggregation-value [aggregation]=aggregation [value]=value></app-aggregation-value>
       </ng-container>
     </div>

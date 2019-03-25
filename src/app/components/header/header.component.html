@@ -1,6 +1,6 @@
 <div class="header-container">
   <div class="header-search-container">
-    <input type="text" class="form-control header-search-input">
+    <input type="text" class="form-control header-search-input" (input)="onSearch($event.target.value)">
     <div class="header-search-icon">
     <fa-icon [icon]="faSearch" ></fa-icon>
   </div>

@@ -1,3 +1,5 @@
+import { templateRefExtractor } from '@angular/core/src/render3';
+
 export class ElasticQueryBuilder {
     public _source: string[];
     public query: any = {};
@@ -5,6 +7,7 @@ export class ElasticQueryBuilder {
     public size: number;
     public from: number;
     public total: string;
+    public multiFieldQuery: string;
 
     public prepareQuery() {
         if (!this.query.query) {
@@ -15,6 +18,20 @@ export class ElasticQueryBuilder {
             };
         }
     }
+
+    public prepareMultiFieldQuery(term:string) {
+        this.resetQuery();
+        this.multiFieldQuery=term; 
+    }
+
+    public getMultiFieldQueryStr(){
+        if(this.multiFieldQuery && this.multiFieldQuery.trim()!==''){
+            return '?q='+this.multiFieldQuery;
+        }
+        return '';
+    }
+
+    
 
     public resetQuery() {
         this.query = {};
@@ -36,7 +53,7 @@ export class ElasticQueryBuilder {
         if (this.aggs) {
             obj.aggs = this.aggs;
         }
-        if (this.query && this.query.bool) {
+        if (this.query && (this.query.bool)) {
             obj.query = this.query;
         }
         obj.size = this.size;

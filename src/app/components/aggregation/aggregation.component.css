@@ -1,6 +1,6 @@
 .agreegation-container{
     padding: 2em;
-    border-bottom: 1px solid #2092b4;
+    border-bottom: 1px solid #c5dee6;
 }
 
 .aggregation-selection-container{
@@ -41,22 +41,23 @@
     width: 100%;
 }
 .agrregation-search-input{
-    display:inline-block;
+    display:flex;
 }
 .aggregation-search-input-icon{
     font-size:12px;
-    color: #2092b4;
+    color: #c5dee6;
     vertical-align: middle;
     padding-left: 5px;
-    position: relative;
+    margin-bottom: -20px;
+    justify-content: flex-start;
 }
 
 .agrregation-search-input-control{
-    padding-left: 25px;
     vertical-align: middle;
     font-size: 12px;
-    height: 25px;;
-    margin-top: -20px;
+    height: 25px;
+    padding-left: 25px;
+    justify-content: flex-end;
 }
 
 .aggregation-values-wrapper{

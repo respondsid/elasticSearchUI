@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { SearchPipe } from './pipe/search-pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AggregationComponent } from './components/aggregation/aggregation.component';
@@ -24,6 +24,7 @@ import { SearchResultSelectionsComponent } from './components/search-result-sele
     AggregationComponent,
     AggregationValueComponent,
     HeaderComponent,
+    SearchPipe,
     SearchLayoutComponent,
     SearchAggregationsComponent,
     SearchResultsComponent,

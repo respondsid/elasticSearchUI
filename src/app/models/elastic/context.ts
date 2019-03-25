@@ -31,7 +31,6 @@ export class ElasticContext {
 
     public populateFilteredSearch() {
         if (this.aggregationResults) {
-            this.elasticQuery.resetQuery();
             this.aggregationResults.forEach(element => {
                 if (element.values && element.values.length > 0) {
                     element.values.forEach(value => {
