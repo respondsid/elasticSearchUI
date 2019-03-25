@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CollectionService } from 'src/app/services/collection-service/collection.service';
 import { MetadataField } from 'src/app/models/elastic/metadata-field';
 import { ElasticContext } from 'src/app/models/elastic/context';
@@ -11,7 +11,8 @@ import { SearchSelectionService } from 'src/app/services/search-selection/search
 })
 export class SearchLayoutComponent implements OnInit {
   public elasticContext: ElasticContext = new ElasticContext();
-
+  @Input() metadataFields: MetadataField[];
+  @Input() collection: string;
   constructor(private collectionService: CollectionService, private announceElasticSearchChangedService: SearchSelectionService) { }
 
   ngOnInit() {
@@ -24,23 +25,19 @@ export class SearchLayoutComponent implements OnInit {
   }
 
   searchSetup() {
-    this.collectionService.searchElastic('accounts_catalog', null).subscribe(data => {
-      if (data && data.responseDocuments.length > 0) {
-        data.responseDocuments.forEach(element => {
+        this.metadataFields.forEach(element => {
           const metadataField = new MetadataField(element);
           this.elasticContext.elasticQuery._source.push(metadataField.field_name);
           if (metadataField.facet_ind && metadataField.facet_ind === 'true') {
             this.elasticContext.elasticQuery.aggs[metadataField.field_name] = metadataField.getAggregationObject();
           }
           this.elasticContext.metadataFields.push(metadataField);
-        });
-        this.search()
-      }
-    })
+      });
+      this.search();
   }
 
   public search() {
-    this.collectionService.searchElastic('accounts', this.elasticContext.elasticQuery).subscribe(data => {
+    this.collectionService.searchElastic('companydatabase', this.elasticContext.elasticQuery).subscribe(data => {
       this.elasticContext.initializeFromSearch(data);
     });
   }
