@@ -10,15 +10,16 @@
 
   .search-selection-value-container:hover{
     color:white;
-    background-color:#2991b9
+    background-color:#d2d7d3
    }
 
 .search-selection-value-container{
     display: flex;
     justify-content: space-between;
-    border: 1px solid #2991b9;
+    border: 1px solid #d2d7d3;
     border-radius: 20px;
     font-size: 10px;
+    font-weight: bold;
     width: auto;
 }
 .search-selection-text{

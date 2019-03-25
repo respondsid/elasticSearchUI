@@ -1,6 +1,6 @@
 .agreegation-container{
     padding: 2em;
-    border-bottom: 1px solid #c5dee6;
+    border-bottom: 1px solid #d2d7d3;
 }
 
 .aggregation-selection-container{
@@ -45,7 +45,7 @@
 }
 .aggregation-search-input-icon{
     font-size:12px;
-    color: #c5dee6;
+    color: #d2d7d3;
     vertical-align: middle;
     padding-left: 5px;
     margin-bottom: -20px;
