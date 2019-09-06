@@ -41,7 +41,7 @@ export class ElasticQueryBuilder {
         this._source = [];
         this.query = {};
         this.aggs = {};
-        this.size = 10;
+        this.size = 20;
         this.from = 1;
     }
 

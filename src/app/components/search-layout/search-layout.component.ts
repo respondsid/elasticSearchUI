@@ -37,7 +37,7 @@ export class SearchLayoutComponent implements OnInit {
   }
 
   public search() {
-    this.collectionService.searchElastic('companydatabase', this.elasticContext.elasticQuery).subscribe(data => {
+    this.collectionService.searchElastic(this.collection, this.elasticContext.elasticQuery).subscribe(data => {
       this.elasticContext.initializeFromSearch(data);
     });
   }

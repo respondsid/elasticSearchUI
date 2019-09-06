@@ -17,7 +17,7 @@ export class CollectionService {
 
   private convertResult(response: any) {
     const elasticResponse: ElasticResponse = new ElasticResponse();
-    elasticResponse.total = response.hits.total;
+    elasticResponse.total = response.hits.total.value;
     elasticResponse.responseDocuments = [];
     response.hits.hits.forEach(element => {
       elasticResponse.responseDocuments.push(element._source);

@@ -7,60 +7,61 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'elasticSearchUI';
-  collection='companydatabase';
+  collection='accounts';
   constructor() { }
 
   metadataFields = [
     {
-      'field_id': 'Designation',
-      'field_name': 'Designation',
-      'display_label': 'Designation',
+      'field_id': 'account_number',
+      'field_name': 'account_number',
+      'display_label': 'Account Number',
       'field_type': 'MULTI',
-      'facet_ind': 'true',
-      'collection': 'employees'
+      'facet_ind': 'false',
+      'collection': 'accounts'
     },
     {
       'field_id': 'FirstName',
-      'field_name': 'FirstName',
+      'field_name': 'firstname',
       'display_label': 'First Name',
       'field_type': 'MULTI',
       'facet_ind': 'false',
-      'collection': 'employees'
+      'collection': 'accounts'
     },
     {
-      'field_id': 'LastName',
-      'field_name': 'LastName',
+      'field_id': 'lastname',
+      'field_name': 'lastname',
       'display_label': 'Last Name',
       'field_type': 'MULTI',
       'facet_ind': 'false',
-      'collection': 'employees'
+      'collection': 'accounts'
     },
     {
       'field_id': 'Gender',
-      'field_name': 'Gender',
+      'field_name': 'gender',
       'display_label': 'Gender',
       'field_type': 'MULTI',
       'facet_ind': 'true',
-      'collection': 'employees'
+      'collection': 'accounts'
     },
     {
-      'field_id': 'MaritalStatus',
-      'field_name': 'MaritalStatus',
-      'display_label': 'Marital Status',
+      'field_id': 'employer',
+      'field_name': 'employer',
+      'display_label': 'Employer',
       'field_type': 'MULTI',
       'facet_ind': 'true',
-      'collection': 'employees'
+      'collection': 'accounts'
     },
 
     {
       'field_id': 'age',
-      'field_name': 'Age',
+      'field_name': 'age',
       'display_label': 'Age',
       'field_type': 'RANGE',
       'range': ['{"to":20}', '{"from":10,"to":30}', '{"from":30,"to":60}', '{"from":60}'],
       'range_label': ['Less Than 20', 'From 20 to 30', 'From 30 to 60', 'More than 60'],
       'facet_ind': 'true',
-      'collection': 'employees'
+      'collection': 'accounts',
+      'raw_ind':'false'
     },
     {
       'field_id': 'Address',
@@ -68,27 +69,34 @@ export class AppComponent {
       'display_label': 'Address',
       'field_type': 'MULTI',
       'facet_ind': 'false',
-      'collection': 'employees'
+      'collection': 'accounts'
     },
     {
-      'field_id': 'DateOfJoining',
-      'field_name': 'DateOfJoining',
-      'display_label': 'Joining Date',
-      'field_type': 'RANGE',
-      'range': ['{"to": "now-5y"}', '{"from": "now-5y","to":"now-3y"}','{"from": "now-2y","to":"now-1y"}','{"from":"now-1y"}'],
-      'range_label': ['Older than 5 years', 'From 5 years to 3 years old','From 1 year to 2 year ', 'Less than an year old'],
-      'facet_ind': 'true',
-      'collection': 'employees'
+      'field_id': 'email',
+      'field_name': 'email',
+      'display_label': 'Email',
+      'field_type': 'MULTI',
+      'facet_ind': 'false',
+      'collection': 'accounts'
     },
     {
-      'field_id': 'Salary',
-      'field_name': 'Salary',
-      'display_label': 'Annual Salary',
-      'field_type': 'RANGE',
-      'range': ['{"to":"60000"}', '{"from": "60000","to":"80000"}', '{"from": "80000","to":"120000"}', '{"from": "120000"}'],
-	    'range_label': ['Less Than 60,000$', 'From 60,000$ to $80,000', 'From 80,000$ to $1,20,000$', 'More Than 1,20,000$'],
+      'field_id': 'state',
+      'field_name': 'state',
+      'display_label': 'State',
+      'field_type': 'Multi',
       'facet_ind': 'true',
-      'collection': 'employees'
+      'collection': 'accounts'
+    },
+    {
+      'field_id': 'balance',
+      'field_name': 'balance',
+      'display_label': 'Balance',
+      'field_type': 'RANGE',
+      'range': ['{"to":"6000"}', '{"from": "6000","to":"15000"}', '{"from": "15000","to":"45000"}', '{"from": "45000"}'],
+	    'range_label': ['Less Than 6,000$', 'From 6,000$ to $15,000', 'From 15,000$ to $45,000$', 'More Than 45,000$'],
+      'facet_ind': 'true',
+      'collection': 'accounts',
+      'raw_ind':'false'
   }
   ]
 }

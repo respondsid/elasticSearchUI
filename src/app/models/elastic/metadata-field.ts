@@ -7,6 +7,7 @@ export class MetadataField {
     public range_label: string[];
     public facet_ind: string;
     public collection: string;
+    public raw_ind: string;
 
     constructor(obj: any) {
         this.field_id = obj.field_id;
@@ -17,16 +18,17 @@ export class MetadataField {
         this.range_label = obj.range_label;
         this.facet_ind = obj.facet_ind;
         this.collection = obj.collection;
+        this.raw_ind=obj.raw_ind;
     }
 
     public getAggregationObject() {
         if (this.facet_ind) {
             if (this.field_type !== 'RANGE') {
-                const obj: any = JSON.parse('{"terms":{"field":"' + this.field_name + '.raw"}}');
+                const obj: any = JSON.parse('{"terms":{"field":"' + this.getFieldName() + '"}}');
                 obj.terms.size = 100;
                 return obj;
             } else {
-                const obj: any = JSON.parse('{"range":{"field":"' + this.field_name + '.raw"}}');
+                const obj: any = JSON.parse('{"range":{"field":"' +  this.getFieldName() + '"}}');
                 obj.range.ranges = this.range.map(item => JSON.parse(item.replace('\\', '')));
                 obj.range.ranges.size = 100;
                 return obj;
@@ -38,18 +40,18 @@ export class MetadataField {
     public getFilterQueryObject(value: string) {
         if (this.facet_ind) {
             if (this.field_type !== 'RANGE') {
-                const obj: any = JSON.parse('{"term":{"' + this.field_name + '.raw":"' + value + '"}}');
+                const obj: any = JSON.parse('{"term":{"' + this.getFieldName() + '":"' + value + '"}}');
                 return obj;
             } else {
                 const obj: any = {};
                 obj.range = {}
-                obj.range[this.field_name + '.raw'] = {};
+                obj.range[this.getFieldName()] = {};
                 const ranges: string[] = value.split('-');
                 if (ranges[0] !== '*') {
-                    obj.range[this.field_name + '.raw'].gte = ranges[0];
+                    obj.range[this.getFieldName()].gte = ranges[0];
                 }
                 if (ranges[1] !== '*') {
-                    obj.range[this.field_name + '.raw'].lte = ranges[1];
+                    obj.range[this.getFieldName()].lte = ranges[1];
                 }
                 return obj;
 
@@ -57,6 +59,13 @@ export class MetadataField {
 
         }
         return null;
+    }
+
+    public getFieldName(){
+        if(this.raw_ind && this.raw_ind==='false'){
+            return   this.field_name;
+        }
+        return this.field_name+".raw";
     }
 
 }
